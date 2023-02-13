@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css">
+    <script src="http://cdn.webix.com/edge/webix.js"></script>
+    <title>Form with Webix</title>
+</head>
+<body>
+    <script type="text/javascript">
+        webix.ui({
+            //type es para seleccionar el tipo de borde, puede ser: line, space, wide, clean.
+            type: "clean",
+            cols: [
+                {},
+                {view: "form",
+            width: 600,
+            // para configurar a todos los elementos dentro de este form, tambien se lo puede hcaer individualmente, modificando el atributo del elemento
+            elementsConfig: {
+                labelWidth: 150
+            },
+            elements: [
+                // importante el atributo name para obtener inputs desde los controles
+
+                // A continuacion una lista de elementos
+
+                //titulo
+                {
+                    view: "label", 
+                    label: "User profile"
+                },
+
+                //textbox
+                { 
+                    view: "text", 
+                    name: "userFirstName", 
+                    label: "First Time", 
+                    readonly: true
+                },
+                //textbox
+                { 
+                    view: "text", 
+                    name: "userFirstName", 
+                    label: "Last Name", 
+                    disabled: true
+                },
+                //selector
+                {
+                    view: "select",
+                    name: "userCity",
+                    label: "City",
+                    options: ["New York City", "San Antonio", "San Diego"]
+                },
+                //combobox
+                {
+                    view: "combo",
+                    name: "userCityComb ",
+                    label: "City",
+                    value: "City",
+                    options: [
+                        {id:1, value: "New York City"}, 
+                        {id:2, value: "San Antonio"}, 
+                        {id:3, value:"San Diego"},
+                    ]
+                },
+                //opciones
+                {
+                    view: "segmented",
+                    label: "Gender",
+                    options: ["Male", "Female", "Not specificed"],
+                    value: "Not specificied"
+                },
+                //calendario
+                {
+                    view: "datepicker",
+                    label: "Gender",
+                    options: new Date(2017,11,8),
+                    format: "%d/%m/%Y"
+                },
+                //contador
+                {
+                    view: "counter",
+                    label: "Children",
+                    value: "0"
+                },
+
+                {
+                    view: "fieldset",
+                    label: "User icon setting",
+                    body:{
+                        rows:[
+                            {
+                                view: "colorpicker",
+                                label: "Icon Color",
+                                value: "blue"
+                            }
+                        ]
+                    },
+                    
+                },
+
+                {
+                    type: "section",
+                    template: "Notes & Notifications"
+                },
+
+                {
+                    view: "textarea", label: "Notes"
+                },
+
+                {
+                    view:"checkbox", label: "Send Notification", value: false
+                },
+                {
+                    view: "toggle",
+                    type: "iconButton",
+                    onIcon: "check",
+                    offIcon: "bell",
+                    offlabel:"Enable notifications",
+                    onLabel:"Notifications enabled"
+                }
+
+
+            ]},
+                {}
+            ]
+        });
+    </script>
+    
+</body>
+</html>
